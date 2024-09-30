@@ -26,16 +26,49 @@ export default function Home() {
 
       <section>
         <h2>📝エンジニアのブログ</h2>
-        <div>
+        <div className={styles.grid}>
           <article>
             <Link href="/">
-              <img src="images/thumbnail01.jpg"/>
+              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
             </Link>
-            <Link href="/">
+            <Link href="/" className={UtilStyle.boldText}>
               SSGとSSRの使い分けの場面
             </Link>
             <br/>
-            <small>February 23, 2020</small>
+            <small className={UtilStyle.lightText}>February 23, 2020</small>
+            
+          </article>
+          <article>
+            <Link href="/">
+              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
+            </Link>
+            <Link href="/" className={UtilStyle.boldText}>
+              SSGとSSRの使い分けの場面
+            </Link>
+            <br/>
+            <small className={UtilStyle.lightText}>February 23, 2020</small>
+            
+          </article>
+          <article>
+            <Link href="/">
+              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
+            </Link>
+            <Link href="/" className={UtilStyle.boldText}>
+              SSGとSSRの使い分けの場面
+            </Link>
+            <br/>
+            <small className={UtilStyle.lightText}>February 23, 2020</small>
+            
+          </article>
+          <article>
+            <Link href="/">
+              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
+            </Link>
+            <Link href="/" className={UtilStyle.boldText}>
+              SSGとSSRの使い分けの場面
+            </Link>
+            <br/>
+            <small className={UtilStyle.lightText}>February 23, 2020</small>
             
           </article>
         </div>
