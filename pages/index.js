@@ -40,50 +40,19 @@ export default function Home({allPostsData}) {
       <section>
         <h2>📝エンジニアのブログ</h2>
         <div className={styles.grid}>
-          <article>
-            <Link href="/">
-              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
+          {allPostsData.map(({id,title,date,thumbnail}) =>(
+            <article key={id}>
+            <Link href={`posts/${id}`}>
+              <img className={styles.thumbnailImage} src={`${thumbnail}`}/>
             </Link>
-            <Link href="/" className={UtilStyle.boldText}>
-              SSGとSSRの使い分けの場面
-            </Link>
-            <br/>
-            <small className={UtilStyle.lightText}>February 23, 2020</small>
-            
-          </article>
-          <article>
-            <Link href="/">
-              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
-            </Link>
-            <Link href="/" className={UtilStyle.boldText}>
-              SSGとSSRの使い分けの場面
+            <Link href={`posts/${id}`} className={UtilStyle.boldText}>
+              {title}
             </Link>
             <br/>
-            <small className={UtilStyle.lightText}>February 23, 2020</small>
-            
-          </article>
-          <article>
-            <Link href="/">
-              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
-            </Link>
-            <Link href="/" className={UtilStyle.boldText}>
-              SSGとSSRの使い分けの場面
-            </Link>
-            <br/>
-            <small className={UtilStyle.lightText}>February 23, 2020</small>
-            
-          </article>
-          <article>
-            <Link href="/">
-              <img className={styles.thumbnailImage} src="images/thumbnail01.jpg"/>
-            </Link>
-            <Link href="/" className={UtilStyle.boldText}>
-              SSGとSSRの使い分けの場面
-            </Link>
-            <br/>
-            <small className={UtilStyle.lightText}>February 23, 2020</small>
-            
-          </article>
+            <small className={UtilStyle.lightText}>{date}</small>
+            </article>
+          ) )}
+          
         </div>
       </section>
       
