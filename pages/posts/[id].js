@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { getAllPostsIds, getPostData } from "../../lib/post";
 import UtilStyle from "../../styles/utils.module.css";
+import Head from "next/head";
 export async function getStaticPaths() {
     //ブログ投稿データのファイル名(id)を取得。
     const paths = getAllPostsIds();
@@ -23,6 +24,7 @@ export async function getStaticProps({params}){
 export default function Post({postData}) {
     return (
         <Layout>
+            <Head><title>{postData.title}</title></Head>
             <article>
                 <h1 className={UtilStyle.headingX1}>{postData.title}</h1>
                 <div className={UtilStyle.lightText}>{postData.date}</div>

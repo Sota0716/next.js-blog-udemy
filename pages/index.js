@@ -3,7 +3,7 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
-import Layout from "@/components/Layout";
+import Layout, { siteTitle } from "@/components/Layout";
 import UtilStyle from "../styles/utils.module.css";
 import {getPostsData} from '../lib/post';
 
@@ -32,7 +32,10 @@ const geistMono = localFont({
 
 export default function Home({allPostsData}) {
   return (
-    <Layout home>  
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>  
       <section className={UtilStyle.headingMd}>
         <p> 私はバックエンドエンジニアです。好きな言語はPHPです。</p>
       </section>
