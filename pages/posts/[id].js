@@ -1,23 +1,35 @@
 import Layout from "@/components/Layout";
-import { getAllPostsIds } from "../../lib/post";
-
+import { getAllPostsIds, getPostData } from "../../lib/post";
+import UtilStyle from "../../styles/utils.module.css";
 export async function getStaticPaths() {
+    //ブログ投稿データのファイル名(id)を取得。
     const paths = getAllPostsIds();
-    
+  
     return {
-        paths,
-        fallback:false,//falseは存在しないidの場合404を返す
-    }
+      paths, //どのパスが事前にレンダリングされるのか決める。
+      fallback: false, //あとで説明。(falseにすると、上のpathsに含まれてないあらゆるパスはアクセスすると404ページになる。)
+    };
+  }
+
+export async function getStaticProps({params}){
+    const postData = await getPostData(params.id);
+    return{
+        props:{
+            postData,
+        },
+    };
 }
 
-export function getStaticProps({params}){
-    
-}
-
-export default function Post() {
+export default function Post({postData}) {
     return (
         <Layout>
-            動的ルーティング
+            <article>
+                <h1 className={UtilStyle.headingX1}>{postData.title}</h1>
+                <div className={UtilStyle.lightText}>{postData.date}</div>
+                
+                <br/>
+                <div dangerouslySetInnerHTML={{ __html: postData.blogContentHTML }} />
+            </article>
         </Layout>
     );
 }
