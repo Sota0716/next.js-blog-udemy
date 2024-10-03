@@ -32,7 +32,7 @@ const geistMono = localFont({
 
 export default function Home({allPostsData}) {
   return (
-    <Layout>  
+    <Layout home>  
       <section className={UtilStyle.headingMd}>
         <p> 私はバックエンドエンジニアです。好きな言語はPHPです。</p>
       </section>
